@@ -1,0 +1,69 @@
+<form class="form-horizontal" id="formAluno" (ngSubmit)="save()">
+  <fieldset>
+    <div class="panel panel-primary">
+      <div class="panel-heading">Cadastro</div>
+
+      <div class="panel-body">
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="name">Nome </label>
+          <div class="col-md-8">
+            <input id="name" class="form-control input-md" required=""
+                   type="text">
+            <div *ngIf="nome.invalid && (nome.touched || nome.dirty)" class="alert alert-danger">Campo obrigatório</div>
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="dt-0">Data de Nascimento </label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group date"><i class="glyphicon glyphicon-calendar"></i></span>
+              <input id="dt-0" name="prependedtext"
+                     class="form-control"
+                     placeholder="dd/MM/YYYY"
+                     required="" type="text" OnKeyPress="formatar('##/##/####', this)">
+              <div *ngIf="dtNascAluno.invalid && (dtNascAluno.touched || dtNascAluno.dirty)" class="alert alert-danger">
+                Campo obrigatório
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <!-- Multiple Radios (inline) -->
+
+          <label class="col-md-1 control-label">Sexo </label>
+          <div class="col-md-5">
+            <label required="" class="radio-inline" for="sexo2">
+              <input name="sexo" id="sexo2" value="true" type="radio" required>
+              Feminino
+            </label>
+            <label class="radio-inline" for="sexo5">
+              <input name="sexo" id="sexo5" value="false" type="radio">
+              Masculino
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div id="endereco-painel">
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="Cadastrar"></label>
+          <div class="col-md-8">
+            <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset" [routerLink]="['/aluno']">
+              Cancelar
+            </button>
+            <button id="Cadastrar" name="Cadastrar" class="btn btn-success pull-right" type="Submit">Salvar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </fieldset>
+</form>

@@ -1,0 +1,69 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Pesquisar Pessoa
+  </div>
+
+
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="getPessoas()">Pesquisar</button>
+      <div class="pull-right">
+        <button class="btn btn-primary" [routerLink]="['/novo']">
+          <i class="material-icons">group_add</i>Novo
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Resultado
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">
+          <div class="center">#</div>
+        </th>
+        <th scope="col">
+          <div class="center">Nome</div>
+        </th>
+        <th scope="col">
+          <div class="center">Sexo</div>
+        </th>
+        <th scope="col">
+          <div class="center">Data de Nascimento</div>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <th scope="col">
+          <div class="center">{{pessoa.id}}</div>
+        </th>
+        <th scope="col">
+          <div class="center">{{pessoa.nome}}</div>
+        </th>
+        <th scope="col">
+          <div class="center">{{pessoa.sexo}}</div>
+        </th>
+        <th scope="col">
+          <div class="center">{{pessoa.dataNascimento}}</div>
+        </th>
+        <div class="center">
+          <button type="button" title="Detalhes" class="btn btn-primary" [routerLink]="['detalhes', pessoa.id]">
+            <span class="glyphicon glyphicon-folder-open"></span>
+          </button>
+          <button type="button" class="btn btn-primary" title="Editar" [routerLink]="[pessoa.id]">
+            <span class="glyphicon glyphicon-edit"></span>
+          </button>
+        </div>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
