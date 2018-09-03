@@ -9,9 +9,7 @@
         <div class="form-group">
           <label class="col-md-2 control-label" for="name">Nome </label>
           <div class="col-md-8">
-            <input id="name" class="form-control input-md" required=""
-                   type="text">
-            <div *ngIf="nome.invalid && (nome.touched || nome.dirty)" class="alert alert-danger">Campo obrigatório</div>
+            <input id="name" class="form-control input-md" type="text" [(ngModel)]="pessoa.nome" name="nome">
           </div>
         </div>
 
@@ -24,10 +22,8 @@
               <input id="dt-0" name="prependedtext"
                      class="form-control"
                      placeholder="dd/MM/YYYY"
-                     required="" type="text" OnKeyPress="formatar('##/##/####', this)">
-              <div *ngIf="dtNascAluno.invalid && (dtNascAluno.touched || dtNascAluno.dirty)" class="alert alert-danger">
-                Campo obrigatório
-              </div>
+                     required="" type="text"
+                     [(ngModel)]="pessoa.dataNascimento">
             </div>
           </div>
         </div>
@@ -39,11 +35,11 @@
           <label class="col-md-1 control-label">Sexo </label>
           <div class="col-md-5">
             <label required="" class="radio-inline" for="sexo2">
-              <input name="sexo" id="sexo2" value="true" type="radio" required>
+              <input name="sexo" id="sexo2" value="true" type="radio" required [(ngModel)]="pessoa.sexo">
               Feminino
             </label>
             <label class="radio-inline" for="sexo5">
-              <input name="sexo" id="sexo5" value="false" type="radio">
+              <input name="sexo" id="sexo5" value="false" type="radio" [(ngModel)]="pessoa.sexo">
               Masculino
             </label>
           </div>
@@ -54,7 +50,7 @@
         <div class="form-group">
           <label class="col-md-2 control-label" for="Cadastrar"></label>
           <div class="col-md-8">
-            <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset" [routerLink]="['/aluno']">
+            <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset" [routerLink]="['/pessoa']">
               Cancelar
             </button>
             <button id="Cadastrar" name="Cadastrar" class="btn btn-success pull-right" type="Submit">Salvar</button>
